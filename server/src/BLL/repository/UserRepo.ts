@@ -24,6 +24,7 @@ export class UserRepo implements IUserRepo {
         try {
             return await User.findAll({
                 attributes: { exclude: ["password"] },
+                order:[['id','DESC']]
             });
         } catch (error: any) {
             throw new Error(`${error.message}`);
